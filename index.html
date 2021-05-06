@@ -1,0 +1,468 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Help File</title>
+	<link rel="stylesheet" href="assets/style/style.css" />
+	<link rel="stylesheet" href="assets/highlight/styles/atelier-heath.light.css">
+	<script type="text/javascript" src="assets/highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+	
+	<div id="content">
+		<div id="menu">
+			<a class="menu-title" href="#overview">Overview</a>
+			<ul>
+				<li><a href="#beforeyougetstarted">Before you get started</a></li>
+				<li><a href="#supported">Supported browser</a></li>
+				<li><a href="#news" class="important">What's new in this version?</a></li>
+			</ul>
+
+
+
+			<a class="menu-title" href="#installation">Getting Started</a>
+			<ul>
+				<li><a href="#step1">Step 1 - Installation</a></li>
+				<li><a href="#step2">Step 2 - Integration</a></li>
+				<li><a href="#step3">Step 3 - Configuration</a></li>
+				<li><a href="#step4">Step 4 - Verification</a></li>
+				<li><a href="#step5">Step 5 - API</a></li>
+			</ul>
+
+			<a class="menu-title" href="#examples">Examples</a>
+			<ul>
+				<li><a href="#ex1">Example 1</a></li>
+				<li><a href="#ex2">Example 2</a></li>
+				<li><a href="#ex3">Example 3</a></li>
+			</ul>
+
+			<a class="menu-title" href="#misc">Misc</a>
+			<ul>
+				<li><a href="#faq">FAQ</a></li>
+				<li><a href="#changelog">Changelog</a></li>
+			</ul>
+
+			<div id="footer">Follow me on <a href="http://codecanyon.net/user/qote?ref=qote">Codecanyon</a></div>
+		</div>
+		<div id="text">
+			<div id="header">
+				<div>
+					<h1>scratch.js</h1>
+					<div>
+						<p><b>Version 1.4</b><br />December 3, 2014</p>
+					</div>
+				</div>
+			</div>
+			<div id="main">
+			
+
+
+			<h1 id="overview">Overview</h1>
+			
+			<h2 id="beforeyougetstarted">Before you get started</h2>
+			
+			<p>Thank you for purchasing scratch.js on CodeCanyon. If you have any questions that are not answered in this help file, if you've found a bug or think of a feature, please feel free to send me a message with the <a href="http://codecanyon.net/user/qote?ref=qote">contact form</a> on my Envato profile page.</p>
+
+			<p>Before you get started make sure that you have the 5 following folders:</p>
+			<ul>
+				<li><b>script</b>: this folder contains all the files required to use scratch.js</li>
+				<li><b>swf</b>: this folder contains the flash file 'scratchcard.swf' required if you want to have a fallback to the html5 canvas tag. You will also find a subfolder called 'source' that contains the source files of the swf.</li>
+				<li><b>documentation</b>: this folder contains the present documentation</li>
+				<li><b>graphics</b>: this folder contains all the graphics files used in the examples, feel free to use them in your project if you want to</li>
+				<li><b>examples</b>: this folder contains three different examples of scratch.js in use, you can check them if you want to see the script in action</li>
+				<li><b>source</b>: this folder contains the an annoted version of scratch.js in case you need to modify it</li>
+			</ul>
+
+			<h2 id="supported">Supported browser</h2>
+			<p>All major browsers are supported, including:</p>
+			<ul>
+				<li>Internet Explorer 11 and newer (Internet Explorer 9 and newer with Flash fallback)</li>
+				<li>Firefox 3.6 and newer</li>
+				<li>Chrome 2.0 and newer</li>
+				<li>Safari 2.0 and newer</li>
+				<li>Opera 9.0 and newer</li>
+			</ul>
+			<p>scratch.js run on most smartphones:</p>
+			<ul>
+				<li>Safari 6.1 and newer for IOS (Iphone and Ipad)</li>
+				<li>Internet Explorer Mobile 10 and newer for Windows Phone</li>
+				<li>Android 4.1 and newer</li>
+			</ul>
+
+			<h2 id="news">What's new in this version?</h2>
+			<p></p>
+			<ul>
+				<li>some bugs have been fixed, check the <a href="#changelog">changelog</a> for a full list</li>
+				<li>a Flash fallback is available for the browsers not supporting the html5 canvas tag. Check the <a href="#step1">Installation</a> and <a href="#step3">Configuration</a> steps for more information.</li>
+			</ul>
+
+			<h1 id="installation">Getting Started</h1>
+		
+			<h2 id="step1">Step 1 - Installation</h2>
+			<p>The only file you need to upload to your website is in the folder <b>script</b> and is named <b>scratch.min.js</b>. If you want to use the Flash fallback option, you will have to upload to your website the file <b>scratchcard.swf</b> which is in <b>flash</b> folder.</p>
+			<h2 id="step2">Step 2 - Integration</h2>
+			<p>Once you've uploaded the required file to your server you will need to link it in the <b>head</b> tag of the pages where you want to use sratch.js:</p>
+<pre><code class="html"><!--
+-->&lt;head&gt;
+	&lt;script src="scratch.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;<!--
+--></code></pre>
+
+			<h2 id="step3">Step 3 - Configuration</h2>
+			<p>For each scratch card you want to display with scratch.js you will have to set some specific parameters to personnalize their appearance and reactivity. Each instance should have the following properties set:</p>
+			<i>(all parameters underlined in red are required, the other ones are optional)</i>
+			<ul class="configuration-list">
+				<li><span class="required">container</span>: you need to specify a container for the scratch card. For example you can use a <b>div</b> block with an id such as <b>scratchcard</b> that you will identify with <b>document.getElementById('scratchcard')</b>.<br />Please note that the container you pass as a parameter must have its css <b>display</b> property set to <b>static</b>, otherwise the script will change it to that value.<br />Also note that if the container has no width or height specified, the script will use the size of the <b>background</b> image parameter.</li>
+				<li><span class="required">background</span>: it must indicate a relative or absolute path to the image that you want to be discovered once the foreground image is scratched off. Please note that this image DOES NOT need to follow the same origin policy rule.</li>
+				<li><span class="required">foreground</span>: it must indicate a relative or absolute path to the image that you want to use as a cover and that will be scrathed off. Please note that due to the <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">same origin policy</a> rule, you can only use an image hosted in the same website than the one where you run the script or on a server using the Cross-Origin Resource Sharing (CORS) (imgur.com, Amazon S3, Google Cloud).<br />Alternatively, you can specify an hexadecimal color (for example #7E0 or #9A17C8) instead of an image.</li>
+				<li>percent: this property sets the limit (between 0 and 100) above which the end event will be triggered and the whole scratch card will be automatically scratched off. Please note that a good practice would be to never set this property over 95 as it could be frustrating for your website visitors to have some small and almost hidden pixels left. If nothing is specified the default value is 95.</li>
+				<li>coin: relative or absolute path to an image that will serve as a mouse cursor when the the scratch card will be hovered. If nothing is specified, the default mouse cursor will be set as <b>pointer</b>. If an image is used, it DOES NOT need to follow the same origin policy rule.</li>
+				<li>thickness: set the radius in pixel of the brush that will be used to scratch off the foreground. The higher the value, the higher the size of the brush. Default value is 20</li>
+				<li>counter: specify a function that will be called each time a part of the scratch card is scratched off. The percent of the total discovered area will be used as the function's parameter as well as the current scratch card properties.</li>
+				<li>callback: specify a function that will be called once the end event is triggered. All properties of the current scratch card will be used as the function's parameter.</li>
+				<li>flashPath: it must indicate a relative or absolute path to the swf used as a fallback. Please note that some browsers may not allow that file to be loaded if it is hosted on a https server while your site is http only (and vice versa)</li>
+				<li>flash: this property is a boolean (it must be set to either true or false) that will force the use of Flash instead of using the html5 tag canvas. Please note that this property is for testing purpose only, as Flash is not supported natively on all IOS devices.</li>
+			</ul>
+			<p>Once all options have been set, you have to pass them as an object-parameter to the function <b>createScratchCard</b>. Here is an example:</p>
+<pre><code class="html javascript"><!--
+-->&lt;script&gt;
+	window.onload = function() {
+		createScratchCard({
+			'container':document.getElementById('scratch2'), 
+			'background':'images/demo1-background.png', 
+			'foreground':'images/demo1-foreground.png', 
+			'percent':90, 
+			'coin':'images/coin2.png', 
+			'thickness':18,
+			'flashPath':'flash/scratchcard.swf'
+		});
+	}
+&lt;/script&gt;<!--
+--></code></pre>			
+			<h2 id="step4">Step 4 - Verification</h2>
+			<p>If you followed all the previous steps you page should now display a card ready to be scratched off. If the script does not seem to work, please check the examples in the next step and read the frequently asked question to try to resolve your problem. You can also try to locate and correct the error with web debugging tools such as Firebug (for Firefox) or Chrome Dev Tools (for Chrome).<br />Ultimately and only if you think that the error is not due to your implementation of scratch.js but is due to a bug in my script, you can send me a message with the <a href="http://codecanyon.net/user/qote?ref=qote">contact form</a> on my Envato profile page.</p>
+
+			<h2 id="step5">Step 5 - API</h2>
+			<p>Once they have been set, the scratch cards behaviour can be controlled through a basic api. 3 functions are available:</p>
+			<ul class="configuration-list">
+				<li><b>lock()</b>: the lock function disables the scratch card (the scratch card cannot be scratched off anymore). The lock function accepts a boolean parameter (true or false) to lock or unlock the card. If no parameter is given, the scratch card will be toggled on or off on each call.</li>
+				<li><b>restart()</b>: the restart function resets the scratch card to its initial state, even if the scratch card has already been completely scratched off</li>
+				<li><b>clean()</b>: the clean function scratches off the scratch card without triggering the end event</li>
+			</ul>
+			<p>Those functions are associated with the html container and can be called as follow:</p>
+<pre><code class="html javascript linecount"><!--
+--><span class="line">&lt;script&gt;</span>
+<span class="line">	document.getElementById(&#039;myScratchcard&#039;).restart(true);</span>
+<span class="line"></span>
+<span class="line">	function progression(percent, element) {</span>
+<span class="line">		if(percent > 50) { element.container.lock(true); }</span>
+<span class="line">	}</span>
+<span class="line"></span>
+<span class="line">	function callback(element) {</span>
+<span class="line">		element.container.clean();</span>
+<span class="line">	}</span>
+<span class="line">&lt;/script&gt;</span><!--
+--></code></pre>
+			<ul>
+				<li>on line <b>2</b> the scratch card's container is selected by using 'getElementById()' and the restart function is called</li>
+				<li>the progression function from line <b>4</b> to <b>6</b> will lock the container if more than 50% of the card have been scratched off</li>
+				<li>the callback function from line <b>8</b> to <b>10</b> will clean the container</li>
+			</ul>
+			<p>For a real demonstration of the possibilities, check <a href="#ex3">example 3</a></p>
+
+
+
+			<h1 id="examples">Examples</h1>
+			<h2 id="ex1">Example 1: Basic scratch card</h2>
+			<p>This first example is pretty straight forward and is a good way to understand all basic possibilities of scratch.js</p>
+<pre><code class="html javascript linecount"><!--
+--><span class="line">&lt;!DOCTYPE html&gt;</span>
+<span class="line">&lt;html&gt;</span>
+<span class="line">	&lt;head&gt;</span>
+<span class="line">		&lt;meta charset=&quot;utf-8&quot; /&gt;</span>
+<span class="line">		&lt;title&gt;scratch.js - Example 1&lt;/title&gt;</span>
+<span class="line">		&lt;script type=&quot;text/javascript&quot; src=&quot;assets/js/scratch.min.js&quot;&gt;&lt;/script&gt;</span>
+<span class="line">		&lt;script&gt;</span>
+<span class="line">			function callback(d) { </span>
+<span class="line">				d.container.style.backgroundImage = &#039;url(assets/images/demo1-end.gif)&#039;;</span>
+<span class="line">			}</span>
+<span class="line">			function percent(p) { document.getElementById(&#039;counter&#039;).innerHTML = p; }</span>
+<span class="line">			window.onload = function() {</span>
+<span class="line">				createScratchCard({</span>
+<span class="line">					&#039;container&#039;:document.getElementById(&#039;scratchcard&#039;),</span>
+<span class="line">					&#039;background&#039;:&#039;assets/images/demo1-background.png&#039;,</span>
+<span class="line">					&#039;foreground&#039;:&#039;assets/images/demo1-foreground.png&#039;,</span>
+<span class="line">					&#039;percent&#039;:95,</span>
+<span class="line">					&#039;coin&#039;:&#039;assets/images/coin2.png&#039;,</span>
+<span class="line">					&#039;thickness&#039;:18,</span>
+<span class="line">					&#039;counter&#039;:&#039;percent&#039;,</span>
+<span class="line">					&#039;callback&#039;:&#039;callback&#039;</span>
+<span class="line">				});</span>
+<span class="line">			}</span>
+<span class="line">		&lt;/script&gt;</span>
+<span class="line">		&lt;style&gt;</span>
+<span class="line">			body { text-align: center; }</span>
+<span class="line">			#scratchcard { display: block; width: 180px; height: 180px; margin: 40px auto; }</span>
+<span class="line">		&lt;/style&gt;</span>
+<span class="line">	&lt;/head&gt;</span>
+<span class="line">	&lt;body&gt;</span>
+<span class="line">		&lt;div id=&quot;scratchcard&quot;&gt;&lt;/div&gt;</span>
+<span class="line">		&lt;span id=&quot;counter&quot;&gt;0&lt;/span&gt;&lt;span&gt;%&lt;/span&gt;</span>
+<span class="line">	&lt;/body&gt;</span>
+<span class="line">&lt;/html&gt;</span><!--
+--></code></pre>
+			<ul>
+				<li>the callback function from line <b>8</b> to <b>10</b> is called once the whole card has been scratched off. Here we only do one thing : we change the background image to a gif animation in order to give a visual feedback to the visitor that the game has ended</li>
+				<li>the percent function on line <b>11</b> update the value of the span tag on line <b>28</b>, displaying in real time how many percents of the foreground have been scratched off.</li>
+			</ul>
+			<p><a href="../examples/example 1/index.html">See a live demo of Example 1</a></p>
+
+			<h2 id="ex2">Example 2: Complex shape</h2>
+			<p>In some cases you may want to use a shape more complicated than a rectangle or a square to make a scratch card: there is nothing easier, the only thing you have to do is to draw you shape in an image with a transparent background. This example shows some basic ideas that can help you to use the full potential of scratch.js.</p>
+<pre><code class="html javascript css linecount"><!--
+--><span class="line">&lt;!DOCTYPE html&gt;</span>
+<span class="line">&lt;html&gt;</span>
+<span class="line">	&lt;head&gt;</span>
+<span class="line">		&lt;meta charset=&quot;utf-8&quot; /&gt;</span>
+<span class="line">		&lt;title&gt;scratch.js - Example 2&lt;/title&gt;</span>
+<span class="line">		&lt;script type=&quot;text/javascript&quot; src=&quot;assets/js/scratch.min.js&quot;&gt;&lt;/script&gt;</span>
+<span class="line">		&lt;script&gt;</span>
+<span class="line">			window.onload = function() {</span>
+<span class="line">				createScratchCard({</span>
+<span class="line">					&#039;container&#039;:document.getElementById(&#039;circle&#039;),</span>
+<span class="line">					&#039;background&#039;:&#039;assets/images/demo2-circle-background.png&#039;,</span>
+<span class="line">					&#039;foreground&#039;:&#039;assets/images/demo2-circle-foreground.png&#039;,</span>
+<span class="line">					&#039;percent&#039;:100,</span>
+<span class="line">					&#039;coin&#039;:&#039;assets/images/coin2.png&#039;,</span>
+<span class="line">					&#039;thickness&#039;:18,</span>
+<span class="line">				});</span>
+<span class="line">				createScratchCard({</span>
+<span class="line">					&#039;container&#039;:document.getElementById(&#039;star&#039;),</span>
+<span class="line">					&#039;background&#039;:&#039;assets/images/demo2-star-background.png&#039;,</span>
+<span class="line">					&#039;foreground&#039;:&#039;assets/images/demo2-star-foreground.png&#039;,</span>
+<span class="line">				});</span>
+<span class="line">				createScratchCard({</span>
+<span class="line">					&#039;container&#039;:document.getElementById(&#039;multiple&#039;),</span>
+<span class="line">					&#039;background&#039;:&#039;assets/images/demo2-multiple-background.png&#039;,</span>
+<span class="line">					&#039;foreground&#039;:&#039;assets/images/demo2-multiple-foreground.png&#039;,</span>
+<span class="line">				});</span>
+<span class="line">			}</span>
+<span class="line">		&lt;/script&gt;</span>
+<span class="line">		&lt;style&gt;</span>
+<span class="line">			body div { display: inline-block; vertical-align: top; }</span>
+<span class="line">		&lt;/style&gt;</span>
+<span class="line">	&lt;/head&gt;</span>
+<span class="line">	&lt;body&gt;</span>
+<span class="line">		&lt;div id=&quot;circle&quot;&gt;&lt;/div&gt;</span>
+<span class="line">		&lt;div id=&quot;star&quot;&gt;&lt;/div&gt;</span>
+<span class="line">		&lt;div id=&quot;multiple&quot;&gt;&lt;/div&gt;</span>
+<span class="line">	&lt;/body&gt;</span>
+<span class="line">&lt;/html&gt;</span><!--
+--></code></pre>
+			<p>And that's all you have to do to implement complex shapes! No extra code, scratch.js will automatically differentiate transparent pixels from non-transparent.</p>
+			<p><a href="../examples/example 2/index.html">See a live demo of Example 2</a></p>
+
+
+			<h2 id="ex3">Example 3: Choose a card and play</h2>
+			<p>This example demonstrate the full potential of scratch.js. The game works as follow:</p>
+			<ul>
+				<li>The player must choose one of the scratch cards</li>
+				<li>When one card has been chosen it can be scratched off, the others are disabled</li>
+				<li>Once the card has been scratched off, the game is over and a message is displayed</li>
+				<li>If the message is clicked, the cards are reseted and shuffled</li>
+			</ul>
+			<p><a href="../examples/example 3/index.html">See a live demo of Example 3</a></p>
+<pre><code class="html javascript css linecount"><!--
+--><span class="line">&lt;!DOCTYPE html&gt;</span>
+<span class="line">&lt;html&gt;</span>
+<span class="line">	&lt;head&gt;</span>
+<span class="line">		&lt;meta charset=&quot;utf-8&quot; /&gt;</span>
+<span class="line"></span>
+<span class="line">		&lt;title&gt;scratch.js - Example 3&lt;/title&gt;</span>
+<span class="line">		&lt;script type=&quot;text/javascript&quot; src=&quot;assets/js/scratch.min.js&quot;&gt;&lt;/script&gt;</span>
+<span class="line">		&lt;script&gt;</span>
+<span class="line">			var cardSelected = false;</span>
+<span class="line">			var cardsArray;</span>
+<span class="line">			var instructions;</span>
+<span class="line">			var scratchcards;</span>
+<span class="line"></span>
+<span class="line">			var win = &#039;assets/images/win.png&#039;;</span>
+<span class="line">			var lose = &#039;assets/images/lose.png&#039;;</span>
+<span class="line">			var foreground = &#039;assets/images/foreground.png&#039;;</span>
+<span class="line"></span>
+<span class="line">			function counting(covered, element) {</span>
+<span class="line">				if(!cardSelected &amp;&amp; covered &gt; 0) {</span>
+<span class="line">					for(var i = 0, l = cardsArray.length; i &lt; l; i++) {</span>
+<span class="line">						if(!(cardsArray[i].id == element.container.id)) {</span>
+<span class="line">							cardsArray[i].lock();</span>
+<span class="line">							cardsArray[i].className = &#039;disabled&#039;;</span>
+<span class="line">						}</span>
+<span class="line">					}</span>
+<span class="line">					cardSelected = true;</span>
+<span class="line">					instructions.innerHTML = &#039;Scratch the card off&#039;;</span>
+<span class="line">				}</span>
+<span class="line">			}</span>
+<span class="line"></span>
+<span class="line">			function callback(element) {</span>
+<span class="line">				for(var i = 0, l = cardsArray.length; i &lt; l; i++) {</span>
+<span class="line">					if(!(cardsArray[i].id == element.container.id)) {</span>
+<span class="line">						cardsArray[i].clean();</span>
+<span class="line">					}</span>
+<span class="line">				}</span>
+<span class="line">				var b = element.container.style.backgroundImage;</span>
+<span class="line">				if(b.indexOf(win) &gt; -1) {</span>
+<span class="line">					instructions.innerHTML = &#039;You win! Click here to try again!&#039;;	</span>
+<span class="line">				} else {</span>
+<span class="line">					instructions.innerHTML = &#039;You lose but you can click here to try again.&#039;;	</span>
+<span class="line">				}</span>
+<span class="line">				instructions.addEventListener(&#039;click&#039;, restartAll, false);</span>
+<span class="line">			}</span>
+<span class="line">			function restartAll() {</span>
+<span class="line">				instructions.removeEventListener(&#039;click&#039;, restartAll, false);</span>
+<span class="line">				for(var i=0, l=cardsArray.length; i&lt;l; i++) {</span>
+<span class="line">					cardsArray[i].restart();</span>
+<span class="line">					cardsArray[i].className = &#039;&#039;;</span>
+<span class="line">					isMouseDown = false;</span>
+<span class="line">				}</span>
+<span class="line">				cardSelected = false;</span>
+<span class="line">				shuffle();</span>
+<span class="line">				instructions.innerHTML = &#039;Choose one card&#039;;</span>
+<span class="line">			}</span>
+<span class="line">			function shuffle() {</span>
+<span class="line">				for (var i = scratchcards.children.length; i &gt;= 0; i--) {</span>
+<span class="line">					scratchcards.appendChild(scratchcards.children[Math.random() * i | 0]);</span>
+<span class="line">				}</span>
+<span class="line">			}</span>
+<span class="line"></span>
+<span class="line">			window.onload = function() {</span>
+<span class="line"></span>
+<span class="line">				instructions = document.getElementById(&#039;instructions&#039;);</span>
+<span class="line">				instructions.innerHTML = &#039;Choose one card&#039;;</span>
+<span class="line"></span>
+<span class="line">				scratchcards = document.getElementById(&#039;scratchcards&#039;);</span>
+<span class="line"></span>
+<span class="line">				cardsArray = [ document.getElementById(&#039;firstCard&#039;), document.getElementById(&#039;secondCard&#039;), </span>document.getElementById(&#039;thirdCard&#039;) ];
+<span class="line">				shuffle();</span>
+<span class="line"></span>
+<span class="line">				createScratchCard({</span>
+<span class="line">					&#039;container&#039;: cardsArray[0],</span>
+<span class="line">					&#039;background&#039;: lose,</span>
+<span class="line">					&#039;foreground&#039;: foreground,</span>
+<span class="line">					&#039;coin&#039;:&#039;assets/images/coin2.png&#039;,</span>
+<span class="line">					&#039;percent&#039;:95,</span>
+<span class="line">					&#039;thickness&#039;:18,</span>
+<span class="line">					&#039;counter&#039;:&#039;counting&#039;,</span>
+<span class="line">					&#039;callback&#039;: &#039;callback&#039;</span>
+<span class="line">				});</span>
+<span class="line"></span>
+<span class="line">				createScratchCard({</span>
+<span class="line">					&#039;container&#039;: cardsArray[1],</span>
+<span class="line">					&#039;background&#039;: lose,</span>
+<span class="line">					&#039;foreground&#039;: foreground,</span>
+<span class="line">					&#039;coin&#039;:&#039;assets/images/coin2.png&#039;,</span>
+<span class="line">					&#039;percent&#039;:95,</span>
+<span class="line">					&#039;thickness&#039;:18,</span>
+<span class="line">					&#039;counter&#039;:&#039;counting&#039;,</span>
+<span class="line">					&#039;callback&#039;: &#039;callback&#039;</span>
+<span class="line">				});</span>
+<span class="line"></span>
+<span class="line">				createScratchCard({</span>
+<span class="line">					&#039;container&#039;: cardsArray[2],</span>
+<span class="line">					&#039;background&#039;: win,</span>
+<span class="line">					&#039;foreground&#039;: foreground,</span>
+<span class="line">					&#039;coin&#039;:&#039;assets/images/coin2.png&#039;,</span>
+<span class="line">					&#039;percent&#039;:95,</span>
+<span class="line">					&#039;thickness&#039;:18,</span>
+<span class="line">					&#039;counter&#039;:&#039;counting&#039;,</span>
+<span class="line">					&#039;callback&#039;: &#039;callback&#039;</span>
+<span class="line">				});</span>
+<span class="line"></span>
+<span class="line">			}</span>
+<span class="line">		&lt;/script&gt;</span>
+<span class="line">		&lt;style&gt;</span>
+<span class="line">			body { text-align: center; height: 100%; }</span>
+<span class="line">			#instructions { text-align: center; color: #444; font-size: 1.2em; text-transform: uppercase; padding-top: 40px; cursor: </span>pointer; }
+<span class="line">			#firstCard, #secondCard, #thirdCard { display: inline-block; vertical-align: middle; margin: 40px;  }</span>
+<span class="line">			.disabled { opacity: 0.5; }</span>
+<span class="line">		&lt;/style&gt;</span>
+<span class="line">	&lt;/head&gt;</span>
+<span class="line">	&lt;body&gt;</span>
+<span class="line">		&lt;div id=&quot;instructions&quot;&gt;&lt;/div&gt;</span>
+<span class="line">		&lt;div id=&quot;scratchcards&quot;&gt;</span>
+<span class="line">			&lt;div id=&quot;firstCard&quot;&gt;&lt;/div&gt;</span>
+<span class="line">			&lt;div id=&quot;secondCard&quot;&gt;&lt;/div&gt;</span>
+<span class="line">			&lt;div id=&quot;thirdCard&quot;&gt;&lt;/div&gt;</span>
+<span class="line">		&lt;/div&gt;</span>
+<span class="line">	&lt;/body&gt;</span>
+<span class="line">&lt;/html&gt;</span><!--
+--></code></pre>
+			<ul>
+				<li>from line <b>9</b> to <b>16</b>, all the required variables are set, making them accessible in all functions</li>
+				<li>the counting function from line <b>18</b> to <b>30</b> is called when one of the cards is scratched off. The condition on line <b>19</b> makes sure that the function is only triggered once and the loop on line <b>20</b> locks all the cards except the one selected</li>
+				<li>the callback function from line <b>31</b> to <b>44</b>, is called once the chosen card has been scratched off. The loop on line <b>32</b> cleans all the other cards and the condition on line <b>38</b> check if the player won or lost. On line <b>43</b> an event listener is added to allow the player to click on the title to restart the game.</li>
+				<li>the restartAll function from line <b>45</b> to <b>55</b> resets all the cards and calls the shuffle function</li>
+				<li>the shuffle function from line <b>56</b> to <b>60</b> shuffles the order of the scratch cards</li>
+				<li>Once the page has been fully loaded, the function from line <b>62</b> to <b>105</b> will set the scratch cards on the page. There are 2 important lines here: <b>line 69</b> where we put all the scratch cards' containers in an array, allowing the interactivity between cards (such as clicking one card disables the others) and <b>line 70</b> where we shuffle the cards before the game starts (so each time the page is reloaded the game is different).
+			</ul>
+			<p><a href="../examples/example 3/index.html">See a live demo of Example 3</a></p>
+
+			<h1 id="misc">Misc</h1>
+			<h2 id="faq">FAQ</h2>
+			<ul class="configuration-list">
+				<li>scratch.js does not seem to work, nothing happens
+					<ul><li>Make sure you have correctly included scratch.js in your page, or try to link the js file with an absolute path. Also make sure that you wait for the page to finish loading before trying to use scratch.js. Your javascript instructions must be enclosed by <b>window.onload</b>:
+					<pre><code class="html javascript linecount"><!--
+-->window.onload = function() {
+	// your code goes here...
+}<!--
+					--></pre></code>
+					</li></ul>
+				</li>
+				<li>I want to use an image from another site than mine as a foreground image for a scratch card. Can I bypass the same origin policy rule?
+					<ul><li>It depends, some web servers use the Cross-Origin Resource Sharing (CORS) which in our case allows the use of distant ressources. Servers using CORS include but not limited to: imgur.com, Amazon S3, Google Cloud. If the server does not use CORS, then it is not possible to use a distant image as the same origin policy rule is applied by the browser of your website visitors and thus, cannot be changed.</li></ul>
+				</li>
+				<li>I need to adapt scrath.js to my needs, could you help me?
+					<ul><li>No, unless I think that the feature you want to add could benefit to all user of scratch.js, I will not do free modifications. If you need to edit the script though, check in the source folder as there is an annoted version of it.</li></ul>
+				</li>
+				<li>I need to randomly generate scratch cards, how can I do that?
+					<ul><li>You can find a <a href="./randomness/index.html">complementary tutorial here</a>, with a full javascript example and a PHP + javascript example. Please note that the demo files of the second example needs to be uploaded on a php server to work.</li></ul>
+				</li>
+			</ul>
+			<h2 id="changelog">Changelog</h2>
+			<ul>12/03/2014 - Version 1.4
+				<li>Corrected a scroll bug on Windows Phones</li>
+				<li>Corrected a bug where the counter function was triggered when the page was loaded</li>
+				<li>Corrected a bug with the API restart function</li>
+				<li>Added a Flash fallback for the browsers which don't support the html5 canvas tag</li>
+			</ul>
+			<ul>11/04/2014 - Version 1.31
+				<li>Corrected a position bug affecting Chrome users</li>
+			</ul>
+			<ul>11/01/2014 - Version 1.3
+				<li>Corrected a bug where the scratch card would be partially redraw after being resized</li>
+				<li>Corrected a bug where the scratch card would not function if an hexadecimal color was used as a foreground</li>
+				<li>Corrected a bug where the coin cursor would be displayed on Android devices</li>
+				<li>Corrected a bug where the scratch card has a strange behaviour if one the container's parents had a CSS margin</li>
+				<li>Corrected a bug which induced lags on Android devices</li>
+				<li>The overall performances have been optimized up and the percentage calculation is many time faster</li>
+				<li>A basic API has been added. The scratch cards can now be easily locked, restarted or cleaned off</li>
+				<li>The Cross-Origin Resource Sharing (CORS) is now supported. The scratch cards can now use images hosted on server using CORS (imgur.com, Amazon S3, Google Cloud...), thus reducing bandwidth use.</li>
+				<li>Corrected some minor bugs</li>
+			</ul>
+			<ul>09/15/2014 - Version 1.2
+				<li>Scratch.js is now fully responsive</li>
+				<li>Corrected a duplication bug that low end pc users may have encountered</li>
+				<li>The scratch cards may be resized now</li>
+			</ul>
+			<ul>09/01/2014 - Version 1.1
+				<li>Corrected some bugs that were speficic to Android and IOS</li>
+			</ul>
+			<ul>08/20/2014 -Version 1.0
+				<li>Initial release</li>
+			</ul>
+			<a href="http://www.codelist.cc"><img src="http://www.ten28.com/ss.jpg"></a>		</div>
+		</div>
+	</div>
+</body>
+</html>
