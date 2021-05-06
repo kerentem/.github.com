@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>scratch.js - Example 2</title>
+		<script type="text/javascript" src="assets/js/scratch.min.js"></script>
+		<script>
+			window.onload = function() {
+				createScratchCard({
+					'container':document.getElementById('circle'),
+					'background':'assets/images/demo2-circle-background.png',
+					'foreground':'assets/images/demo2-circle-foreground.png',
+					'percent':100,
+					'coin':'assets/images/coin2.png',
+					'thickness':18,
+				});
+				createScratchCard({
+					'container':document.getElementById('star'),
+					'background':'assets/images/demo2-star-background.png',
+					'foreground':'assets/images/demo2-star-foreground.png',
+					'percent':95,
+					'thickness':18
+				});
+				createScratchCard({
+					'container':document.getElementById('multiple'),
+					'background':'assets/images/demo2-multiple-background.png',
+					'foreground':'assets/images/demo2-multiple-foreground.png',
+					'percent':95,
+					'thickness':18
+				});
+			}
+		</script>
+		<style>
+			body div { display: inline-block; vertical-align: top; }
+		</style>
+	</head>
+	<body>
+		<div id="circle"></div>
+		<div id="star"></div>
+		<div id="multiple"></div>
+	</body>
+</html>
